@@ -1,0 +1,22 @@
+def square(x, y, size) {
+	var square = (x, y) -> (x + size, y) -> (x + size, y + size) -> (x, y + size) -> (x, y); 
+	return square;
+}
+
+def main() {
+    var g[30, 30];
+    background(g," ");
+    
+    var sq;
+    var size = 4;
+    for(var i = 0; i < 4; ++i){
+    	for(var j = 0; j < 4; ++j){
+    		var x = i * size;
+        	var y = j * size;
+    		sq = square(x, y, size); 
+    		draw(sq, g);
+    	}
+    }
+    display(g);
+    return;
+}

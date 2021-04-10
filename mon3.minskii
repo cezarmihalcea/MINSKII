@@ -1,0 +1,25 @@
+def square(a,b)
+{
+ var s = (a,b) -> (a,b + 3) -> (a + 3, b + 3) -> (a + 3, b) -> (a,b); 
+ return s;
+}
+
+def main() {
+  var x = 1;
+  var y = 1;
+  var c[20, 20];
+  var v;
+  background(c, " ");
+  
+  v = square(x, y);
+  draw(v,c);
+  v = square(x + 3, y + 3);
+  draw(v,c);
+  v = square(x , y + 3);
+  draw(v,c);
+  v = square(x + 3, y);
+  draw(v,c);
+  
+  
+  display(c);
+}

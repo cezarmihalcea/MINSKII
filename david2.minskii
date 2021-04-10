@@ -1,0 +1,14 @@
+def main() {
+    var g[20,20];
+    background(g," ");
+    for(var i=1;i<=13;i = i + 4)
+    {
+        var x=(i + 2);
+        var y=(i + 3);
+        var t=(i,i)->(i,x)->(y,i)->(i,i);
+        draw(t,g);
+    }
+    display(g);
+return;
+}
+

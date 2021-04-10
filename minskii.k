@@ -4,7 +4,12 @@ module MINSKII-SYNTAX
 
     //SHAPE SYNTAX
 
-    syntax Pt ::= "(" Int "," Int ")"
+    syntax PtC ::= "(" Int "," Int ")"
+                
+
+    syntax Pt ::= PtC
+                | "(" AExp "," AExp ")"   [seqstrict]
+
     
     syntax Shp ::= Pt
                  | Pt "->" Shp    [seqstrict]
@@ -24,6 +29,7 @@ module MINSKII-SYNTAX
     syntax Id ::= "main" [token]
 
     syntax AExp  ::= Int | Id
+                   | "(" AExp ")"    [bracket]
                    | AExp "*" AExp   [seqstrict]
                    > AExp "/" AExp   [seqstrict]
                    > AExp "+" AExp   [seqstrict]
@@ -93,7 +99,7 @@ module MINSKII
 
     syntax KResult ::= Val | Vals
 
-    syntax Val ::= Int | Bool | String | Shp | Pt
+    syntax Val ::= Int | Bool | String | Shp | PtC
                  | lambda(Ids, Stmt)
                  | array(Int, Int)
 
@@ -168,8 +174,8 @@ module MINSKII
     //shape drawing
     syntax Id ::= "$dx" | "$dy" | "$x" | "$y" | "$p" | "$slope" | "$i" | "$q"
 
-    rule draw((Y:Int, X:Int), C:Id); => C[X][Y] = "+";
-    rule draw((Y1:Int, X1:Int) -> (Y2:Int, X2:Int), C:Id); => {
+    rule draw((Y:AExp, X:AExp), C:Id); => C[X][Y] = "+";
+    rule draw((Y1:AExp, X1:AExp) -> (Y2:AExp, X2:AExp), C:Id); => {
         if((Y2 == Y1) && (X2 == X1)) {
             ln(X1, Y1, X2, Y2, "+", C);
         } else {
@@ -200,7 +206,7 @@ module MINSKII
 
     //Bresenham's line algorithm
 
-    rule lnlow(X:Int, Y:Int, Z:Int, T:Int, S:String, C:Id); => {
+    rule lnlow(X:AExp, Y:AExp, Z:AExp, T:AExp, S:String, C:Id); => {
         var $dx, $dy, $i, $y, $p, $q;    
 
         $dx = Z - X;
@@ -226,7 +232,7 @@ module MINSKII
         } 
     }
 
-    rule lnhigh(X:Int, Y:Int, Z:Int, T:Int, S:String, C:Id); => {
+    rule lnhigh(X:AExp, Y:AExp, Z:AExp, T:AExp, S:String, C:Id); => {
         var $dx, $dy, $i, $x, $p, $q;    
 
         $dx = Z - X;
@@ -252,7 +258,7 @@ module MINSKII
         }
     }
 
-    rule ln(X:Int, Y:Int, Z:Int, T:Int, S:String, C:Id); => {
+    rule ln(X:AExp, Y:AExp, Z:AExp, T:AExp, S:String, C:Id); => {
         var $dy, $dx;
 
         if((T - Y) < 0) {
@@ -464,5 +470,5 @@ module MINSKII
     syntax Stmt ::= mkDecls(Ids,Vals)   [function]
     rule mkDecls((X:Id, Xs:Ids), (V:Val, Vs:Vals)) => var X = V; mkDecls(Xs, Vs)
     rule mkDecls(.Ids, .Vals) => {}
-    
+
 endmodule

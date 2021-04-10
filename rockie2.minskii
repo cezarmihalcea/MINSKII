@@ -1,0 +1,13 @@
+def main() {
+    var g[20,20];
+    var triangle;
+    background(g," ");
+    for(var i = 0; i < 4; ++i){
+    	var x = i * 4;
+    	triangle = (x, x) -> (x + 2, x + 2) -> (x + 2, x) -> (x, x);
+    	draw(triangle,g);
+    }
+    display(g);
+    return;
+}
+

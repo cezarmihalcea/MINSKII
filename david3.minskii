@@ -1,0 +1,21 @@
+def main() {
+    var g[20,20];
+    background(g," ");
+    var x=0;
+    var y=0;
+    var p=(x,y)->(x,y + 4)->(x + 4,y + 4)->(x + 4,y)->(x,y);
+    for(var i=0;i<=2;++i)
+    {		
+    	    draw(p,g);
+	    x=x + 5;
+    }
+    x=0;
+    for(var i=0;i<=2;++i)
+    {
+            draw(p,g);
+	    y=y + 5;
+    }
+    display(g);
+    return;
+}
+

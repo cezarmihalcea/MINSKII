@@ -1,0 +1,7 @@
+def main() {
+  var c[3, 3];
+  background(c, " ");
+  var l  = (0,2) -> (2,0) -> (2, 2) -> (0,2);
+  draw(l, c);
+  display(c);
+}

@@ -1,0 +1,9 @@
+def main() {
+    var g[6,6];
+    var t=(2,2)->(2,4)->(5,2)->(2,2);
+    background(g,"*");
+    draw(t,g);
+    display(g);
+    return;
+}
+

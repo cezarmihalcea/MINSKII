@@ -1,0 +1,20 @@
+def drawsq(x, y) {
+  var l = ((x - 1), (y - 1)) -> ((x + 1), y - 1) -> (x + 1, y + 1) -> (x - 1, y + 1) -> (x - 1, y - 1);
+  return l;
+}
+
+def main() {
+  var c[20, 20];
+  background(c, " ");
+  for (var i = 0; i < 5; ++i) {
+    var left = drawsq(1, (1 + 3 * i));
+    var top = drawsq((1 + 3 * i), 1);
+    var right = drawsq(18, (1 + 3 * i));
+    var bot = drawsq((1 + 3 * i), 18);
+    draw(left, c);
+    draw(top, c);
+    draw(right, c);
+    draw(bot, c);
+  }
+  display(c);
+}

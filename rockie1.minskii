@@ -1,0 +1,9 @@
+def main() {
+    var g[10,10];
+    var triangle = (0, 0) -> (4, 9) -> (9, 0) -> (0, 0);
+    background(g," ");
+    draw(triangle,g);
+    display(g);
+    return;
+}
+

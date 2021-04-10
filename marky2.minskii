@@ -1,0 +1,9 @@
+def main() {
+  var c[12, 12];
+  background(c, " ");
+  for(var x = 0; x<4; ++x){
+  	var l  = (3 * x, 3 * x + 1) -> (3 * x + 2, 3 * x + 0) -> (3 * x + 2,  3 * x + 2) -> (3 * x , 3 * x + 1);
+    draw(l, c);
+  }
+  display(c);
+}
