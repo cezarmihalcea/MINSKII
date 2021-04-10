@@ -10,8 +10,12 @@ module MINSKII-SYNTAX
     syntax Pt ::= PtC
                 | "(" AExp "," AExp ")"   [seqstrict]
 
-    
-    syntax Shp ::= Pt
+
+    syntax ShpC ::= PtC
+                  | PtC "->" ShpC   [seqstrict]
+                  | "(" ShpC ")"    [strict] 
+
+    syntax Shp ::= ShpC | Pt
                  | Pt "->" Shp    [seqstrict]
                  | "(" Shp ")"    [strict]
 
@@ -74,9 +78,9 @@ module MINSKII-SYNTAX
 
     syntax Stmt  ::= Block
                    | "var" Exps ";"
-                   | "lnlow" "(" Exps ")" ";"
-                   | "lnhigh" "(" Exps ")" ";" 
-                   | "ln" "(" Exps ")" ";"
+                   | "lnlow" "(" Exps "," String "," Id ")" ";"    [strict(1)]
+                   | "lnhigh" "(" Exps "," String "," Id ")" ";"   [strict(1)]
+                   | "ln" "(" Exps "," String "," Id ")" ";"       [strict(1)]
                    | Exp ";"                                 [strict]
                    | "if" "(" BExp ")" Block                 [strict(1)]
                    | "if" "(" BExp ")" Block "else" Block    [avoid, strict(1)]
@@ -99,7 +103,7 @@ module MINSKII
 
     syntax KResult ::= Val | Vals
 
-    syntax Val ::= Int | Bool | String | Shp | PtC
+    syntax Val ::= Int | Bool | String | ShpC | PtC
                  | lambda(Ids, Stmt)
                  | array(Int, Int)
 

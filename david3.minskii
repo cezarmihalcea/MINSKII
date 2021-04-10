@@ -8,12 +8,15 @@ def main() {
     {		
     	    draw(p,g);
 	    x=x + 5;
+	    p=(x,y)->(x,y + 4)->(x + 4,y + 4)->(x + 4,y)->(x,y);
     }
     x=0;
+    p=(x,y)->(x,y + 4)->(x + 4,y + 4)->(x + 4,y)->(x,y);
     for(var i=0;i<=2;++i)
     {
             draw(p,g);
 	    y=y + 5;
+	    p=(x,y)->(x,y + 4)->(x + 4,y + 4)->(x + 4,y)->(x,y);
     }
     display(g);
     return;

@@ -1,6 +1,6 @@
 def square(x, y, size) {
-	var square = (x, y) -> (x + size, y) -> (x + size, y + size) -> (x, y + size) -> (x, y); 
-	return square;
+	var sq = (x, y) -> (x + size, y) -> (x + size, y + size) -> (x, y + size) -> (x, y); 
+	return sq;
 }
 
 def main() {
@@ -11,9 +11,9 @@ def main() {
     var size = 4;
     for(var i = 0; i < 4; ++i){
     	for(var j = 0; j < 4; ++j){
-    		var x = i * size;
-        	var y = j * size;
-    		sq = square(x, y, size); 
+    		var a = i * size;
+        	var b = j * size;
+    		sq = square(a, b, size); 
     		draw(sq, g);
     	}
     }
