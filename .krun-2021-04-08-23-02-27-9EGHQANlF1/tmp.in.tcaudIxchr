@@ -1,0 +1,16 @@
+LblinitGeneratedTopCell{}
+(
+Lbl'Unds'Map'Unds'{}(
+Lbl'Unds'Map'Unds'{}(
+Lbl'Stop'Map{}()
+, Lbl'UndsPipe'-'-GT-Unds'{}(inj{SortKConfigVar{}, SortKItem{}}(\dv{SortKConfigVar{}}(
+"$PGM"
+)),
+inj{SortStmt{}, SortKItem{}}(Lbldef'UndsLParUndsRParUndsUnds'MINSKII-SYNTAX'Unds'Stmt'Unds'Id'Unds'Ids'Unds'Block{}(\dv{SortId{}}("main"),inj{SortBottoms{}, SortIds{}}(Lbl'Stop'List'LBraQuotUndsCommUndsUnds'MINSKII-SYNTAX'Unds'Bottoms'Unds'Bottom'Unds'Bottoms'QuotRBraUnds'Bottoms{}()),Lbl'LBraUndsRBraUnds'MINSKII-SYNTAX'Unds'Block'Unds'Stmt{}(Lbl'UndsUndsUnds'MINSKII-SYNTAX'Unds'Stmt'Unds'Stmt'Unds'Stmt{}(Lblprint'LParUndsRParSClnUnds'MINSKII-SYNTAX'Unds'Stmt'Unds'Exps{}(Lbl'UndsCommUndsUnds'MINSKII-SYNTAX'Unds'Exps'Unds'Exp'Unds'Exps{}(inj{SortString{}, SortExp{}}(\dv{SortString{}}("aa")),Lbl'Stop'List'LBraQuotUndsCommUndsUnds'MINSKII-SYNTAX'Unds'Exps'Unds'Exp'Unds'Exps'QuotRBraUnds'Exps{}())),Lblreturn'UndsSClnUnds'MINSKII-SYNTAX'Unds'Stmt'Unds'Exp{}(inj{SortVal{}, SortExp{}}(Lblnull'Unds'MINSKII'Unds'Val{}()))))))
+))
+, Lbl'UndsPipe'-'-GT-Unds'{}(inj{SortKConfigVar{}, SortKItem{}}(\dv{SortKConfigVar{}}(
+"$IO"
+)),
+inj{SortString{}, SortKItem{}}(\dv{SortString{}}("on"))
+))
+)
