@@ -1,13 +1,38 @@
-def f(x) {
-	return (x - 1);
+def triangle(x, y) {
+    var s = (x, y) -> (x + 2, y) -> (x + 1, y + 1) -> (x, y);
+    return s;
+}
+
+def pow(x, p) {
+    if(p == 0) {
+    	return 1;
+    } else {
+        var y = pow(x, p - 1); 
+    	return x * y;
+    } 
+}
+
+def fract(x, y, lvl, c) {
+    if(lvl == 1) {
+    	var t = triangle(x,y);
+    	draw(t, c);
+    	return;
+    } else {
+    	
+    	var stp = pow(2, lvl);
+    	var low = stp / 4;
+    
+    	fract(x, y, lvl - 1, c);
+    	fract(x + (stp - low), y, lvl - 1, c);
+    	fract(x + stp / 2, y + stp / 2, lvl - 1, c);
+    }
+    
 }
 
 def main() {
-        var x = 3; 
-        
-        for (var i = 1; i<=3; ++i) {
-        	var y = f(x * i + 4);
-		print(y);
-        }
-	
+    var c[20, 25];
+    background(c, " ");
+    fract(1,1,4,c);
+    display(c);
+    return;
 }
